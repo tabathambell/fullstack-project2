@@ -1,7 +1,40 @@
 const sequelize = require('../config/connection');
 const { Model, DataTypes } = require('sequelize');
 
-class Post extends Model { }
+class Post extends Model {
+    static upvote(body, models) {
+      return models.Favorite.create({
+        user_id: body.user_id,
+        post_id: body.post_id
+      }).then(() => {
+        return Post.findOne({
+          where: {
+            id: body.post_id
+          },
+          attributes: [
+            'id',
+            'post_url',
+            'title',
+            [
+              sequelize.literal('(SELECT COUNT(*) FROM favorite WHERE post.id = favorite.post_id)'),
+              'favorite_count'
+            ]
+          ],
+          include: [
+            {
+              model: models.Comment,
+              attributes: ['id', 'comment_text', 'post_id', 'user_id'],
+              include: {
+                model: models.User,
+                attributes: ['username']
+              }
+            }
+          ]
+        });
+      });
+    }
+  }
+  
 
 Post.init( 
     {   
@@ -23,6 +56,16 @@ Post.init(
             allowNull: false,    
 
         },
+        city: {
+            type: DataTypes.STRING,
+            allowNull: true,
+        },
+        
+        country: {
+            type: DataTypes.STRING,
+            allowNull: true,
+        },
+        
         post_url: {
             type: DataTypes.STRING,
             allowNull: false,
@@ -30,10 +73,6 @@ Post.init(
               isURL: true
             }
           },  
-        // location: {
-        //     //looking into datatype geography
-        
-        // },
         user_id: {
             type: DataTypes.INTEGER,
             references: {
