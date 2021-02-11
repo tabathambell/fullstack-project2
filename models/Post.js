@@ -56,6 +56,16 @@ Post.init(
             allowNull: false,    
 
         },
+        city: {
+            type: DataTypes.STRING,
+            allowNull: true,
+        },
+        
+        country: {
+            type: DataTypes.STRING,
+            allowNull: true,
+        },
+        
         post_url: {
             type: DataTypes.STRING,
             allowNull: false,
