@@ -1,5 +1,5 @@
-const sequelize = require('../config/connection');
 const { Model, DataTypes } = require('sequelize');
+const sequelize = require('../config/connection');
 // hashes the password
 const bcrypt = require('bcrypt');
 
@@ -49,9 +49,7 @@ User.init(
                 updatedUserData.password = await bcrypt.hash(updatedUserData.password, 10);
                 return updatedUserData;
             }
-        }
-    },
-    {
+        },
         sequelize,
         timestamps: false,
         freezeTableName: true,
