@@ -1,7 +1,5 @@
 const router = require('express').Router();
-const sequelize = require('../../config/connection');
 const { Post, User, Comment } = require('../../models');
-const withAuth = require('../../utils/auth');
 
 router.get('/', (req, res) => {
     Post.findAll({
@@ -121,4 +119,12 @@ router.delete('/:id', (req, res) => {
     });
 });
 
-module.exports = router;
+router.put('/favorite', (req, res) => {
+    // custom static method created in models/Post.js
+    Post.upvote(req.body, { Favorite })
+      .then(updatedPostData => res.json(updatedPostData))
+      .catch(err => {
+        console.log(err);
+        res.status(400).json(err);
+      });
+  });
