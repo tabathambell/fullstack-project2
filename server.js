@@ -12,7 +12,7 @@ const sess = {
     secret: 'hey there demons its me ya boi',
     cookie: {},
     resave: false,
-    saveUninitialized: false,
+    saveUninitialized: true,
     store: new SequelizeStore({
       db: sequelize
     })

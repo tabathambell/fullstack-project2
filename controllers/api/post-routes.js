@@ -8,6 +8,8 @@ router.get('/', (req, res) => {
             'id',  
             'title', 
             'post_text',
+            'city',
+            'country',
             'created_at'
         ],
         order: [['created_at', 'DESC']],
@@ -45,6 +47,8 @@ router.get('/:id', (req, res) => {
             'id', 
             'title',
             'post_text',
+            'city',
+            'country',
             'created_at'
         ],
         include: [

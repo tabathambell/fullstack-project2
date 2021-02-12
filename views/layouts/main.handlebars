@@ -11,12 +11,8 @@
 
 <body class="bg-dark">
     <nav class="navbar">
-        {{#if loggedIn}}
-        {{else}}
-        {{/if}}
         <img src="https://i.imgur.com/ObyqFYR.png" />
         <a href="/">Home</a>
-        <a href="/dashboard">Dashboard</a>
         <div class="dropdown">
             <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false">
@@ -28,8 +24,13 @@
                 <a class="dropdown-item" href="#">Something else here</a>
             </div>
         </div>
+        {{#if loggedIn}}
+        <a href="/dashboard">Dashboard</a>
+        <button class="btn btn-dark" type="button" id="logoutBtn">Logout</button>
+        {{else}}
         <button class="btn btn-dark" type="button" data-toggle="modal" data-target="#loginModal">Login</button>
         <button class="btn btn-dark" type="button" data-toggle="modal" data-target="#signupModal">Sign Up</button>
+        {{/if}}
     </nav>
 
     {{!-- Login Modal --}}
