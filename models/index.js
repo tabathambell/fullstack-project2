@@ -13,13 +13,13 @@ Post.belongsTo(User, {
 });
 
 User.belongsToMany(Post, {
-    through: Vote,
+    through: Favorite,
     as: 'favorite_posts',
     foreignKey: 'user_id'
 });
   
 Post.belongsToMany(User, {
-    through: Vote,
+    through: Favorite,
     as: 'favorite_posts',
     foreignKey: 'post_id'
 });
@@ -36,7 +36,7 @@ User.hasMany(Favorite, {
     foreignKey: 'user_id'
 });
   
-Post.hasMany(Vote, {
+Post.hasMany(Favorite, {
     foreignKey: 'post_id'
 });
 

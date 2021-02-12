@@ -25,7 +25,10 @@ router.get('/', (req, res) => {
                 attributes: ['username']
             }
         ]
-    }).then(dbPostData => res.json(dbPostData))
+    }).then(dbPostData => {
+        console.log(dbPostData);
+        res.json(dbPostData);
+    })
       .catch(err => {
           console.log(err);
           res.status(500).json(err);
@@ -73,7 +76,9 @@ router.get('/:id', (req, res) => {
 router.post('/', (req, res) => {
     Post.create({
         title: req.body.title,
-        post_url: req.body.post_url,
+        post_text: req.body.post_text,
+        city: req.body.city,
+        country: req.body.country,
         user_id: req.body.user_id
     }).then(dbPostData => res.json(dbPostData))
       .catch(err => {
@@ -127,4 +132,6 @@ router.put('/favorite', (req, res) => {
         console.log(err);
         res.status(400).json(err);
       });
-  });
+});
+
+module.exports = router;
