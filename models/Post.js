@@ -13,8 +13,10 @@ class Post extends Model {
           },
           attributes: [
             'id',
-            'post_url',
             'title',
+            'post_text',
+            'city',
+            'country'
             [
               sequelize.literal('(SELECT COUNT(*) FROM favorite WHERE post.id = favorite.post_id)'),
               'favorite_count'
@@ -65,14 +67,7 @@ Post.init(
             type: DataTypes.STRING,
             allowNull: true,
         },
-        
-        post_url: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            validate: {
-              isURL: true
-            }
-          },  
+  
         user_id: {
             type: DataTypes.INTEGER,
             references: {
