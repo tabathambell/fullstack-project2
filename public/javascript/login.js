@@ -1,4 +1,33 @@
-const loginSubmitBtn = document.querySelector('#loginSubmit');
+const signupSubmitBtn = document.querySelector('#signupForm');
+const loginSubmitBtn = document.querySelector('#loginForm');
+
+async function signupFormHandler(event){
+    event.preventDefault();
+
+    const username = document.querySelector('#signupUsername').value.trim();
+    const email = document.querySelector('#signupEmail').value.trim();
+    const password = document.querySelector('#signupPassword').value.trim();
+
+    if(username && email && password){
+        const response = await fetch('/api/users/', {
+            method: 'post',
+            body: JSON.stringify({
+                username,
+                email,
+                password
+            }),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+
+        if(response.ok){
+            console.log(document.location.replace('/dashboard'));
+        } else {
+            alert(response.status);
+        }
+    }
+}
 
 async function loginFormHandler(event){
     event.preventDefault();
@@ -19,11 +48,12 @@ async function loginFormHandler(event){
         });
 
         if(response.ok){
-            console.log(document.location.replace('/dashboard'));
+            document.location.replace('/dashboard');
         } else{
             alert(response.statusText);
         }
     }
 }
 
-loginSubmitBtn.addEventListener('click', loginFormHandler);
+signupSubmitBtn.addEventListener('submit', signupFormHandler);
+loginSubmitBtn.addEventListener('submit', loginFormHandler);
