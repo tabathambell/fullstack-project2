@@ -9,33 +9,38 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
 </head>
 
+<style>
+    body {
+        background-color: black;
+    }
+</style>
+
 <body>
-    <div class="wrapper">
-        <header class="hero">
-            <div class="navbar">
-                {{#if loggedIn}}
-                {{else}}
-                {{/if}}
-                <a href="/">Home</a>
-                <a href="/dashboard">Dashboard</a>
-                <div class="dropdown">
-                    <button class="dropbtn">Dropdown
-                        <i class="fa fa-caret-down"></i>
-                    </button>
-                    <div class="dropdown-content">
-                        <a href="#">Link 1</a>
-                        <a href="#">Link 2</a>
-                        <a href="#">Link 3</a>
-                    </div>
-                </div>
+    <nav class="navbar">
+        {{#if loggedIn}}
+        {{else}}
+        {{/if}}
+        <img src="https://i.imgur.com/ObyqFYR.png" />
+        <a href="/">Home</a>
+        <a href="/dashboard">Dashboard</a>
+        <div class="dropdown">
+            <button class="dropbtn">Navigation
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+                <a href="#">Link 1</a>
+                <a href="#">Link 2</a>
+                <a href="#">Link 3</a>
             </div>
-        </header>
-        <main>
-            {{{ body }}}
-        </main>
-        <footer>
-            This be the footah!
-        </footer>
+        </div>
+    </nav>
+    </div>
+    <main>
+        {{{ body }}}
+    </main>
+    <footer>
+        This be the footah!
+    </footer>
     </div>
 
     {{#if loggedIn}}
