@@ -83,7 +83,7 @@ router.post('/', (req, res) => {
         post_text: req.body.post_text,
         city: req.body.city,
         country: req.body.country,
-        user_id: req.body.user_id
+        user_id: req.session.user_id
     }).then(dbPostData => res.json(dbPostData))
       .catch(err => {
           console.log(err);

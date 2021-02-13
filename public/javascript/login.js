@@ -22,7 +22,7 @@ async function signupFormHandler(event){
         });
 
         if(response.ok){
-            console.log(document.location.replace('/dashboard'));
+            document.location.replace('/dashboard');
         } else {
             alert(response.status);
         }

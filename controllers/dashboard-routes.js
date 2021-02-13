@@ -3,13 +3,11 @@ const sequelize = require('../config/connection');
 const { Post, User, Comment } = require('../models');
 
 router.get('/', (req, res) => {
-    Post.findAll({
-    })
-})
+    res.render('dashboard', {
+        loggedIn: req.session.loggedIn
+    });
+});
 
-router.get('/edit/:id', (req, res) => {
-    Post.findOne({
-    })
-})
+router.get('/edit/:id', (req, res) => {});
 
 module.exports = router;
