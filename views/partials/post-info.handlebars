@@ -2,5 +2,13 @@
     <h5 class="card-title">
         <a href="/post/{{id}}">{{title}}</a>
     </h5>
+    <div class="card-content">
+    <span>{{post_text}}</span>
+    </div>
     <p class="card-text">City: {{city}}, Country: {{country}}</p>
+    <div class="card-meta">
+     by {{user.username}} on {{created_at}}
+    |
+    {{comment_text}}
+  </div>
 </div>
