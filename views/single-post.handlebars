@@ -1,6 +1,10 @@
 {{> post-info post}}
 
-{{#if loggedIn}}
+{{#check_user post.user.id user_id}}
+    <button id="editBtn">Edit</button>
+{{/check_user}}
+
+{{!-- {{#if loggedIn}}
 <form class="comment-form">
     <div>
         <textarea name="comment-body"></textarea>
@@ -18,4 +22,4 @@
 {{#if loggedIn}}
 <script src="/javascript/comment.js"></script>
 <script src="/javascript/upvote.js"></script>
-{{/if}}
+{{/if}} --}}
