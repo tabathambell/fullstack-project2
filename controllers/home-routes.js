@@ -9,9 +9,10 @@ router.get('/', (req, res) => {
             'id',
             'title',
             'post_text',
+            'city',
+            'country',
             'created_at'
         ],
-        order: [['created_at']],
         include: [
             {
                 model: Comment,
@@ -33,11 +34,10 @@ router.get('/', (req, res) => {
             posts,
             loggedIn: req.session.loggedIn
         });
-    })
-        .catch(err => {
-            console.log(err);
-            res.status(500).json(err);
-        });
+    }).catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    });
 });
 
 router.get('/post/:id', (req, res) => { });

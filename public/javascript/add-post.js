@@ -7,7 +7,7 @@ async function newPostHandler(event){
     const post_text = document.querySelector('#postBody').value.trim();
     const city = document.querySelector('#postCity').value.trim();
     const country = document.querySelector('#postCountry').value.trim();
-    const image = document.querySelector('#postImage').value;
+    const image = document.querySelector('#postImage').files;
 
     if(title && post_text && city && country && image) {
         const response = await fetch('/api/posts', {
@@ -24,7 +24,8 @@ async function newPostHandler(event){
         });
 
         if(response.ok){
-            document.location.replace('/single-post');
+            // document.location.replace('/single-post');
+            console.log('success');
         } else {
             alert(response.statusText);
         }
