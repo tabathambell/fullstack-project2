@@ -1,8 +1,8 @@
 {{> post-info post}}
 
-{{#check_user post.user.id user_id}}
+{{#if (check_user post.user.id user_id)}}
     <button id="editBtn">Edit</button>
-{{/check_user}}
+{{/if}}
 
 {{!-- {{#if loggedIn}}
 <form class="comment-form">
