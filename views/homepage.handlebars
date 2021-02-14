@@ -1,5 +1,16 @@
-  {{#each posts as |post|}}
+{{#each posts as |post|}}
   <div class="card">
     {{> post-info post }}
   </div>
-  {{/each}}
+
+{{!--
+<div id="map"></div>
+
+<script type="text/javascript" src="./javascript/add-post.js"></script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=&callback=initMap">
+</script> --}}
+
+  <iframe width="450" height="250" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?key=&zoom=3
+          &q={{post.city}},{{post.country}}" allowfullscreen>
+  </iframe>
+{{/each}}
