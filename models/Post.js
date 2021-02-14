@@ -60,14 +60,12 @@ Post.init(
         },
         city: {
             type: DataTypes.STRING,
-            allowNull: true,
+            allowNull: false,
         },
-        
         country: {
             type: DataTypes.STRING,
-            allowNull: true,
+            allowNull: false,
         },
-  
         user_id: {
             type: DataTypes.INTEGER,
             references: {
