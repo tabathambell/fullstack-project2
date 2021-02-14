@@ -1,5 +1,31 @@
   {{#each posts as |post|}}
   <div class="card">
-    {{ post.post_text }}
+    {{ post.title }}
   </div>
   {{/each}}
+
+
+
+<input type="file" id="postImage">
+    <img src="assets/ghost-holder.jpg" id="img" height="200 px"/>
+    <p id="url"></p>
+    <script>
+      const file=document.getElementById('postImage')
+const img=document.getElementById('img')
+const url = document.getElementById("url")
+
+file.addEventListener('change',ev => {
+    const formdata= new FormData()
+    formdata.append("image",ev.target.files[0])
+    fetch("https://api.imgur.com/3/image/",{
+        method: "post",
+        headers:{
+             Authorization:"Client-ID f60018baa47be35"
+                }
+                ,body:formdata
+     }).then(data => data.json()).then(data=> {
+        img.src=data.data.link
+        url.innerText=data.data.link
+        })
+        })
+    </script>

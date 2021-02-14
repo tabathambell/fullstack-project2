@@ -1,7 +1,7 @@
 <section>
     <form class="px-4 py-3" id="newPost">
         <div class="form-group">
-            <label for="postTitle">Tite</label>
+            <label for="postTitle">Title</label>
             <input type="text" class="form-control" id="postTitle" placeholder="Title">
         </div>
         <div class="form-group">
@@ -17,11 +17,20 @@
             <input type="text" class="form-control" id="postCountry" placeholder="Country">
         </div>
         <div class="form-group">
+
+            
             <label for="postImage">Images</label>
             <input type="file" id="postImage" accept="image/png, image/jpeg">
-        </div>
+            <img src="https://i.imgur.com/Y8GqONa.jpg" id="img" height="200 px"/>
+            <p id="url"></p>
+
+        </div> 
         <button type="submit" class="btn btn-primary">Post Blog</button>
     </form>
+
 </section>
 
+
+
 <script src="/javascript/add-post.js"></script>
+

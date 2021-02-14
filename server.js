@@ -7,6 +7,7 @@ const path = require('path');
 const sequelize = require('./config/connection');
 const session = require('express-session');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
+const axios = require('axios');
 
 const sess = {
     secret: 'hey there demons its me ya boi',
@@ -19,9 +20,11 @@ const sess = {
   };
 
 const app = express();
+const cors = require('cors');
 const PORT = process.env.PORT || 3001;
 
 app.use(express.json());
+app.use(cors())
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(session(sess));

@@ -51,4 +51,55 @@ router.get('/login', (req, res) => {
     res.render('login');
 });
 
+//single post
+//serve up the single post page
+router.get("/viewpost/:id", (req, res) => {
+    //we need to get all posts
+    Post.findOne({
+      where: {
+        id: req.params.id,
+      },
+      attributes: ["id", "title", "body", "user_id"],
+      include: [
+        {
+          model: User,
+          as: "user",
+          attributes: ["username"],
+        },
+        {
+          model: Comment,
+          as: "comments",
+          attributes: ["id", "comment_text", "user_id"],
+          include: [
+            {
+              model: User,
+              as: "user",
+              attributes: ["username"],
+            },
+          ],
+        },
+      ],
+    })
+      .then((dbPostData) => {
+        //serialize data
+        if (!dbPostData) {
+          res.status(404).json({ message: "No Posts Available" });
+          return;
+        }
+        const post = dbPostData.get({ plain: true }); // serialize all the posts
+        console.log(post);
+        const myPost = post.user_id == req.session.user_id;
+        res.render("single-post", {
+          post,
+          loggedIn: req.session.loggedIn,
+          currentUser: myPost,
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+        res.status(500).json(err);
+      });
+  });
+  
+
 module.exports = router;
