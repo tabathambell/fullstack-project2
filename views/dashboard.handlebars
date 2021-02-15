@@ -27,7 +27,13 @@
 {{#each posts as |post|}}
 <div class="card">
     {{> post-info post }}
+    <a href="/post/{{id}}" class="edit-link">Edit post</a>  
+  
 </div>
 {{/each}}
 
 <script src="/javascript/add-post.js"></script>
+<script src="/javascript/edit-post.js"></script>
+
+{{!-- <button id=“editBtn”>Edit</button> --}}
+

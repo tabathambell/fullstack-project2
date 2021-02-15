@@ -93,7 +93,14 @@ router.post('/', (req, res) => {
 
 router.put('/:id', (req, res) => {
     Post.update(
-        req.body,
+        {
+            title: req.body.title,
+            post_text: req.body.post_text,
+            city: req.body.city,
+            country: req.body.country,
+            user_id: req.session.user_id
+
+        },
         {
             where: {
                 id: req.params.id
