@@ -66,6 +66,12 @@ Post.init(
             type: DataTypes.STRING,
             allowNull: false,
         },
+        long: {
+          type: DataTypes.FLOAT
+        },
+        lat: {
+          type: DataTypes.FLOAT
+        },
         user_id: {
             type: DataTypes.INTEGER,
             references: {

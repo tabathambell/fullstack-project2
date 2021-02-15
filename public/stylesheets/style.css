@@ -17,3 +17,10 @@
   footer {
     color: white;
   }
+
+  #map {
+    margin-right: auto;
+    margin-left: auto;
+    height: 400px;
+    width: 60%;
+  }
