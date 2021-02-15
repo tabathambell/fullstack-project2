@@ -1,10 +1,6 @@
-{{!-- {{> post-info post}}
-{{#check_user post.user.id user_id}}
-    <button id="editBtn">Edit</button>
-{{/check_user}} --}}
+{{> post-info post}}
 
 {{#if (check_user post.user.id user_id)}}
-
 
     <article>
   <a href="/dashboard"> &larr; Back to dashboard</a>
