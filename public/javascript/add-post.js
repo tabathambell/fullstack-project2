@@ -10,12 +10,22 @@ async function newPostHandler(event){
     const image = document.querySelector('#postImage').files;
 
     if(title && post_text && city && country && image) {
+
+        let lat, long;
+        const cityData = await fetch(`http://www.mapquestapi.com/geocoding/v1/address?key=pjtMs45lJi90EGCVfaBEDChiCmQFtGmI&location=${city}+${country}`).then(data => {
+            return data.json();
+        }).then(data => {
+            [lat, long] = [data.results[0].locations[0].latLng.lat, data.results[0].locations[0].latLng.lng];
+        });
+
         const response = await fetch('/api/posts', {
             method: 'POST',
             body: JSON.stringify({
                 title,
                 post_text,
                 city,
+                long,
+                lat,
                 country
             }),
             headers: {
@@ -33,3 +43,4 @@ async function newPostHandler(event){
 }
 
 createPost.addEventListener('submit', newPostHandler);
+
