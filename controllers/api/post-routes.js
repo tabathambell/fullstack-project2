@@ -10,6 +10,8 @@ router.get('/', (req, res) => {
             'post_text',
             'city',
             'country',
+            'long',
+            'lat',
             'created_at'
         ],
         order: [['created_at', 'DESC']],
@@ -49,6 +51,8 @@ router.get('/:id', (req, res) => {
             'post_text',
             'city',
             'country',
+            'long',
+            'lat',
             'created_at'
         ],
         include: [
@@ -83,6 +87,8 @@ router.post('/', (req, res) => {
         post_text: req.body.post_text,
         city: req.body.city,
         country: req.body.country,
+        long: req.body.long,
+        lat: req.body.lat,
         user_id: req.session.user_id
     }).then(dbPostData => res.json(dbPostData))
       .catch(err => {
