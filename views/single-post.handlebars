@@ -1,6 +1,5 @@
 {{!-- {{> post-info post}}
-
-{{#if (check_user post.user.id user_id)}}
+{{#check_user post.user.id user_id}}
     <button id="editBtn">Edit</button>
 {{/check_user}} --}}
 
@@ -20,13 +19,13 @@
       <input name="postCountry" type="text" value="{{post.country}}" />
       {{!-- <span>({{format_url}})</span> --}}
     </div>
-    {{!-- <div>
+    <div>
       {{post.favorite_count}} {{ post.favorite_count}} by you on {{post.created_at}}
       |
-      <a href="/post/{{post.id}}">{{post.comments.length}} {{ post.comments.length}}</a> --}}
+      <a href="/post/{{post.id}}">{{post.comments.length}} {{ post.comments.length}}
     </div>
     <button type="submit">Save post</button>
-    {{!-- <button type="button" class="delete-post-btn">Delete post</button> --}}
+    <button type="button" class="delete-post-btn">Delete post</button>
   </form>
 </article>
 
@@ -34,7 +33,6 @@
   <div>
     <textarea name="comment-body"></textarea>
   </div>
-
   <div>
     <button type="submit">add comment</button>
   </div>
@@ -43,27 +41,4 @@
 {{!-- {{> post.comments}} --}}
 
 <script src="/javascript/edit-post.js"></script>
-
-{{#if loggedIn}}
-<form class="comment-form">
-    <div>
-        <textarea name="comment-body"></textarea>
-    </div>
-
-    <div>
-        <button type="submit">add comment</button>
-        <button type="button" class="upvote-btn">like</button>
-    </div>
-</form>
 {{/if}}
-
-{{> comments post.comments}}
-
-{{#if loggedIn}}
-<script src="/javascript/comment.js"></script>
-<script src="/javascript/upvote.js"></script>
-{{/if}} --}}
-{{/if}}
-
- 
-
