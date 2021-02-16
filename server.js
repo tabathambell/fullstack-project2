@@ -31,6 +31,12 @@ app.use(routes);
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
-sequelize.sync({ force: false }).then(() => {
-    app.listen(PORT, () => console.log('Now listening'));
+sequelize
+// setting key contraints to false
+    .query('SET FOREIGN_KEY_CHECKS = 0', {raw: true})
+    .then(function(results) {
+      sequelize.sync({ force: false }).then(() => {
+        app.listen(PORT, () => console.log('Now listening'));
+    });
 });
+
