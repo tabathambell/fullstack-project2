@@ -2,7 +2,7 @@ async function editFormHandler(event) {
     event.preventDefault();
   
     const title = document.querySelector('input[name="postTitle"]').value.trim();
-    const post_text = document.querySelector('input[name="postBody"]').value.trim();
+    const post_text = document.querySelector('textarea[name="postBody"]').value.trim();
     const city = document.querySelector('input[name="postCity"]').value.trim();
     const country = document.querySelector('input[name="postCountry"]').value.trim();
     const id = window.location.toString().split('/')[

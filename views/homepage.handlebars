@@ -11,9 +11,12 @@
 </script>
 
 
-
-{{#each posts as |post|}}
-<div class="card">
-  {{> post-info post }}
+<div class="container w-75">
+  {{#each posts as |post|}}
+  <div class="row justify-content-center m-2 card-hover">
+    <div class="card col-12">
+      {{> post-info post }}
+    </div>
+  </div>
+  {{/each}}
 </div>
-{{/each}}
