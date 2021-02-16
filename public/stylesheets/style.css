@@ -20,7 +20,11 @@
     margin-right: auto;
     margin-left: auto;
     height: 400px;
-    width: 60%;
+    width: 100%;
+  }
+
+  .container w-75 {
+    background-color: black;
   }
 
   .card-hover {
