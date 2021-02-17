@@ -13,6 +13,8 @@ router.get('/', (req, res) => {
             'long',
             'lat',
             'created_at'
+            // 'favorite_posts'
+
         ],
         order: [['created_at', 'DESC']],
         include: [
@@ -129,14 +131,19 @@ router.post('/', (req, res) => {
 
 //This is the one you want
 router.put('/favorite', (req, res) => {
-    
-    Favorite.create({
-        user_id: req.body.user_id,
-        post_id: req.body.post_id
-      })
-        .then(dbPostData => res.json(dbPostData))
-        .catch(err => res.json(err));
-});
+
+    if (req.session.loggedIn) {
+    // custom static method created in models/Post.js
+    Post.upvote({post_id: req.body.post_id, user_id: req.session.user_id}, { Favorite })
+      .then(updatedPostData => res.json(updatedPostData))
+      .catch(err => {
+        console.log(err);
+        res.status(400).json(err);
+      
+      });
+
+    }
+    });
 
 
 // router.put('/upvote', (req, res) => {

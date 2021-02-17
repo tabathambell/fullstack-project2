@@ -24,16 +24,16 @@ class Post extends Model {
               'favorite_count'
             ]
           ],
-          include: [
-            {
-              model: models.Comment,
-              attributes: ['id', 'post_id', 'user_id'],
-              include: {
-                model: models.User,
-                attributes: ['username']
-              }
-            }
-          ]
+          // include: [
+          //   {
+          //     model: models.Comment,
+          //     attributes: ['id', 'post_id', 'user_id'],
+          //     include: {
+          //       model: models.User,
+          //       attributes: ['username']
+          //     }
+          //   }
+          // ]
         });
       });
     }
@@ -87,8 +87,16 @@ Post.init(
               model: 'post',
               key: 'id'
             }
-        }
-    },
+        },
+        
+          // favorite_id: {
+          //   type: DataTypes.INTEGER,
+          //   references: {
+          //     model: 'favorite',
+          //     key: 'id'
+          //   }
+        // }
+      },
     {
         sequelize,
         timestamps: true,

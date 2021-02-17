@@ -37,7 +37,7 @@ User.hasMany(Favorite, {
 });
   
 Post.hasMany(Favorite, {
-    foreignKey: 'post_id'
+    foreignKey: 'favorite_posts'
 });
 
 Comment.belongsTo(User, {
