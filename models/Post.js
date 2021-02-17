@@ -16,7 +16,7 @@ class Post extends Model {
             'title',
             'post_text',
             'city',
-            'country'
+            'country',
             [
               sequelize.literal('(SELECT COUNT(*) FROM favorite WHERE post.id = favorite.post_id)'),
               'favorite_count'
