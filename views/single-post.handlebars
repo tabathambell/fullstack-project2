@@ -7,14 +7,13 @@
       |
       <a href="/post/{{post.id}}">{{post.comments.length}} {{ post.comments.length}}</a>
        <div>
-        {{!-- favorite 
-        <button type="button" class="upvote-btn">upvote</button>--}}
+        
+
     </div>
     </div>
   </div>
 </div>
 
-<script type="text/javascript" src="/javascript/favorite.js"></script>
 
 
 {{#if (check_user post.user.id user_id)}}
@@ -48,12 +47,15 @@
 
 
 {{#if loggedIn}}
+
 <form class="comment-form m-3">
   <div class="form-group">
     <textarea name="comment-body"></textarea>
   </div>
   <button type="submit">add comment</button>
-  <button type="button" class="upvote-btn">upvote</button>
+    <button type="button" class="upvote-btn">upvote</button>
+
+
 </form>
 
 {{> comments post.comments}}

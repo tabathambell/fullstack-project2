@@ -31,7 +31,7 @@ async function upvoteClickHandler(event) {
     const id= window.location.toString().split('/')[
       window.location.toString().split('/').length -1 
     ];
-    const response = await fetch('/api/post/favorite', {
+    const response = await fetch('/api/posts/favorite', {
         method: 'PUT',
         body: JSON.stringify({
           post_id: id
@@ -52,5 +52,4 @@ async function upvoteClickHandler(event) {
   
   document.querySelector('.upvote-btn').addEventListener('click', upvoteClickHandler);
 
-//   /api/post-routes.js
-//   /api/post/favorite what was there
+console.log(document.querySelector('.upvote-btn'))
