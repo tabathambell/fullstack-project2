@@ -104,6 +104,8 @@ router.put('/:id', (req, res) => {
             post_text: req.body.post_text,
             city: req.body.city,
             country: req.body.country,
+            lat: req.body.lat,
+            long: req.body.long,
             user_id: req.session.user_id
 
         },
@@ -118,11 +120,15 @@ router.put('/:id', (req, res) => {
             return;
         }
         res.json(dbPostData);
+
     }).catch(err => {
         console.log(err);
         res.status(500).json(err);
     });
 });
+
+
+
 
 router.delete('/:id', (req, res) => {
     Post.destroy({

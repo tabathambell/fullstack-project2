@@ -90,6 +90,34 @@ router.get('/post/:id', (req, res) => {
     });
 });
 
+router.get('/edit/:id', (req, res) => {
+    
+    Post.findOne(
+       
+        {
+            where: {
+                id: req.params.id
+            }
+        }
+    ).then(dbPostData => {
+        if(!dbPostData){
+            res.status(404).json({ message: 'No post found with this id.' });
+            return;
+        }
+        const post = dbPostData.get({ plain: true });
+        console.log(post)
+        // res.json(dbPostData);
+        res.render('edit-post', {
+            post,
+            loggedIn: req.session.loggedIn,
+            user_id: req.session.user_id
+        })
+    }).catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    });
+});
+
 
 
 module.exports = router;

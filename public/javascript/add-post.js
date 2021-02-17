@@ -41,5 +41,6 @@ async function newPostHandler(event){
     }
 }
 
+
 createPost.addEventListener('submit', newPostHandler);
 
