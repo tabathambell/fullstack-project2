@@ -6,17 +6,19 @@
 </iframe> --}}
 
 <script src="/javascript/maps.js"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDdG94JNO8c3GcCXcQc48Ov-_uJmRDR1Kg&callback=initMap&libraries=&v=weekly"
+<script
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDdG94JNO8c3GcCXcQc48Ov-_uJmRDR1Kg&callback=initMap&libraries=&v=weekly"
   async>
-</script>
+  </script>
 
-
-<div class="container w-75">
-  {{#each posts as |post|}}
-  <div class="row justify-content-center m-2 card-hover">
-    <div class="card col-12">
-      {{> post-info post }}
+<div class="container">
+  <div class="card-deck">
+    {{#each posts as |post|}}
+    <div class="row justify-content-center m-2 card-hover">
+      <div class="card">
+        {{> post-info post }}
+      </div>
     </div>
+    {{/each}}
   </div>
-  {{/each}}
 </div>
