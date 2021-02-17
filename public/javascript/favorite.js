@@ -34,11 +34,14 @@ async function upvoteClickHandler(event) {
     const response = await fetch('/api/posts/favorite', {
         method: 'PUT',
         body: JSON.stringify({
-          post_id: id
+        //   post_id: id,
+        //   user_id: id,
+        //   post_id: id
         }),
         headers: {
           'Content-Type': 'application/json'
         }
+        
       });
       
       if (response.ok) {

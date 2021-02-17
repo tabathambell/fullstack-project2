@@ -7,7 +7,7 @@
       |
       <a href="/post/{{post.id}}">{{post.comments.length}} {{ post.comments.length}}</a>
        <div>
-        
+
 
     </div>
     </div>
@@ -53,7 +53,7 @@
     <textarea name="comment-body"></textarea>
   </div>
   <button type="submit">add comment</button>
-    <button type="button" class="upvote-btn">upvote</button>
+  <button type="button" class="upvote-btn">upvote</button>
 
 
 </form>
@@ -61,8 +61,9 @@
 {{> comments post.comments}}
         
 
-<script type="text/javascript" src="/javascript/favorite.js"></script>
 
 <script src="/javascript/comment.js"></script>
+<script type="text/javascript" src="/javascript/favorite.js"></script>
+
 {{/if}}
 

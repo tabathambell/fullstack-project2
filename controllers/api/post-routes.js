@@ -81,6 +81,8 @@ router.get('/:id', (req, res) => {
     });
 });
 
+
+
 router.post('/', (req, res) => {
     Post.create({
         title: req.body.title,
@@ -102,22 +104,40 @@ router.post('/', (req, res) => {
 //         user_id: req.body.user_id,
 //         post_id: req.body.post_id
 //       })
-//         .then(dbPostData => res.json(dbPostData))
-//         .catch(err => res.json(err));
+//         .then(()=> {
+//             //then find the post we just voted on 
+//             return Post.findOne ({
+//                 where:{
+//                     id:req.body.post_id
+//                 },
+//                 attributes:[
+//                     'id',
+//                     'post_url',
+//                     'title',
+//                     'created_at',
+//                     [
+//                         sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'),
+//         'vote_count'
+//                     ]
+//                 ]
+//             })
+//         }).then(dbPostData => res.json(dbPostData))
+//         .catch(err => {
+//           console.log(err);
+//           res.status(400).json(err);
 // });
 
+//This is the one you want
 router.put('/favorite', (req, res) => {
     
-    // custom static method created in models/Post.js
-    Post.upvote(req.body, { Favorite })
-      .then(updatedPostData => {
-        console.log(updatedPostData)  
-        res.json(updatedPostData)})
-      .catch(err => {
-        console.log(err);
-        res.status(400).json(err);
-      });
+    Favorite.create({
+        user_id: req.body.user_id,
+        post_id: req.body.post_id
+      })
+        .then(dbPostData => res.json(dbPostData))
+        .catch(err => res.json(err));
 });
+
 
 // router.put('/upvote', (req, res) => {
 //     // make sure the session exists first
