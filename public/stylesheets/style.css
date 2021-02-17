@@ -40,15 +40,11 @@
     border-bottom: 5px solid rgb(114, 114, 114);
   }
 
-  .card {
-    background-color:rgb(77, 77, 77);
-  }
-
   .card-hover {
     box-shadow: 0;
     transition: box-shadow .5s;
   }
 
   .card-hover:hover{
-    box-shadow: 0 4px 8px 0 rgba(230, 230, 230, 0.4), 0 6px 20px 0 rgb(230, 230, 230);
+    box-shadow: 0 4px 8px 0 rgba(230, 230, 230, 0.4), 0 6px 20px 0 rgb(0, 0, 0);
   }
