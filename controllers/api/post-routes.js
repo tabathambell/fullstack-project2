@@ -53,7 +53,9 @@ router.get('/:id', (req, res) => {
             'country',
             'long',
             'lat',
-            'created_at'
+            'created_at',
+            [sequelize.literal('(SELECT COUNT(*) FROM favorite WHERE post.id = favorite.post_id)'), 'favorite_count']
+
         ],
         include: [
             {
@@ -81,6 +83,8 @@ router.get('/:id', (req, res) => {
     });
 });
 
+
+
 router.post('/', (req, res) => {
     Post.create({
         title: req.body.title,
@@ -95,6 +99,20 @@ router.post('/', (req, res) => {
           console.log(err);
           res.status(500).json(err);
       });
+});
+
+//This is the one you want
+router.put('/favorite', (req, res) => {
+
+    if (req.session.loggedIn) {
+    // custom static method created in models/Post.js
+        Post.upvote({post_id: req.body.post_id, user_id: req.session.user_id}, { Favorite })
+            .then(updatedPostData => res.json(updatedPostData))
+            .catch(err => {
+                console.log(err);
+                res.status(400).json(err);
+            });
+    }
 });
 
 router.put('/:id', (req, res) => {
@@ -147,14 +165,6 @@ router.delete('/:id', (req, res) => {
     });
 });
 
-router.put('/favorite', (req, res) => {
-    // custom static method created in models/Post.js
-    Post.upvote(req.body, { Favorite })
-      .then(updatedPostData => res.json(updatedPostData))
-      .catch(err => {
-        console.log(err);
-        res.status(400).json(err);
-      });
-});
+
 
 module.exports = router;
