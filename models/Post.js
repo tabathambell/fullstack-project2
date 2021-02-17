@@ -3,6 +3,8 @@ const { Model, DataTypes } = require('sequelize');
 
 class Post extends Model {
     static upvote(body, models) {
+      console.log(body)
+      console.log(models)
       return models.Favorite.create({
         user_id: body.user_id,
         post_id: body.post_id
