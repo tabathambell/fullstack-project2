@@ -7,7 +7,6 @@ async function newPostHandler(event){
     const post_text = document.querySelector('#postBody').value.trim();
     const city = document.querySelector('#postCity').value.trim();
     const country = document.querySelector('#postCountry').value.trim();
-   
 
     if(title && post_text && city && country) {
 

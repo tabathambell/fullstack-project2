@@ -1,29 +1,34 @@
-
-<p>{{post.user.id}}</p>
-<p>{{user_id}}</p>
 {{#if (check_user post.user_id user_id)}}
 
 <article class="m-3">
-  <a href="/dashboard"> &larr; Back to dashboard</a>
-  <h2>
+  <a href="/dashboard" class="text-warning text-uppercase"> &larr; Back to dashboard</a>
+
+  <h2 class="text-white text-center">
     Edit Post
   </h2>
-  <form class="edit-post-form">
+
+  <section class="text-light">
+  <form class="px-4 py-3">
     <div class="form-group">
-      <input name="postTitle" type="text" value="{{post.title}}" />
+      <label for="postTitle">Title</label>
+      <input type="text" class="form-control" id="postTitle" value="{{post.title}}">
     </div>
     <div class="form-group">
-      <textarea name="postBody" type="text">{{post.post_text}}</textarea>
+      <label for="postBody">Write Your Story</label>
+      <textarea class="form-control" id="postBody" rows="5">{{post.post_text}}</textarea>
     </div>
     <div class="form-group">
-      <input name="postCity" type="text" value="{{post.city}}" />
+      <label for="postCity">City</label>
+      <input type="text" class="form-control" id="postCity" value="{{post.city}}">
     </div>
     <div class="form-group">
-      <input name="postCountry" type="text" value="{{post.country}}" />
+      <label for="postCountry">Country</label>
+      <input type="text" class="form-control" id="postCountry" value="{{post.country}}">
     </div>
-    <button type="submit">Save post</button>
-    <button type="button" class="delete-post-btn">Delete post</button>
+    <button type="submit" class="btn btn-light">Save</button>
+    <button type="button" class="delete-post-btn btn btn-danger">Delete</button>
   </form>
+  </section>
 </article>
 
 <script src="/javascript/edit-post.js"></script>
