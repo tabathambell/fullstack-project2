@@ -11,9 +11,25 @@
     text-align: right;
     text-decoration: none;
   }
+
+  nav {
+    border-bottom: 5px solid rgb(114, 114, 114);
+  }
   
   footer {
     color: white;
+    height: 50px;
+    width: 100%;
+    background-color: rgb(77, 77, 77);
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    text-align: center;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+  }
+
+  footer p {
+    padding-top: 12px;
   }
 
   #map {
@@ -21,10 +37,11 @@
     margin-left: auto;
     height: 400px;
     width: 100%;
+    border-bottom: 5px solid rgb(114, 114, 114);
   }
 
-  .container w-75 {
-    background-color: black;
+  .card {
+    background-color:rgb(77, 77, 77);
   }
 
   .card-hover {
