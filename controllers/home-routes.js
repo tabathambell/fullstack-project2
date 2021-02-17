@@ -11,8 +11,8 @@ router.get('/', (req, res) => {
             'post_text',
             'city',
             'country',
-            'created_at'
-            // [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
+            'created_at',
+            [sequelize.literal('(SELECT COUNT(*) FROM favorite WHERE post.id = favorite.post_id)'), 'favorite_count']
 
         ],
         include: [
@@ -53,7 +53,9 @@ router.get('/post/:id', (req, res) => {
             'post_text',
             'city',
             'country',
-            'created_at'
+            'created_at',
+            [sequelize.literal('(SELECT COUNT(*) FROM favorite WHERE post.id = favorite.post_id)'), 'favorite_count']
+
         ],
         include: [
             {
