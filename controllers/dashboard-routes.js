@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
-const { Post, User, Comment } = require('../models');
+const { Post, User, Comment , Favorite } = require('../models');
 
 router.get('/', (req, res) => {
     Post.findAll({
@@ -54,7 +54,9 @@ router.get('/post/:id', (req, res) => {
             'post_text',
             'city',
             'country',
-            'created_at'
+            'created_at',
+            [sequelize.literal('(SELECT COUNT(*) FROM favorite WHERE post.id = favorite.post_id)'), 'favorite_count']
+
         ],
         include: [
             {
