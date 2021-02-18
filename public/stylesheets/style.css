@@ -46,7 +46,8 @@
   .comment {
     text-align: center;
     background-color: grey;
-    border-top:1px dott
+    border-top:1px dotted black;
+    color: rgba(255, 255, 255, 0.507);
   }
 
   .card-hover {
@@ -59,4 +60,7 @@
   }
   textarea {
     width: 50%;
+  }
+  .card.bg-secondary.text-white.card-hover {
+    width: 4rem;
   }
