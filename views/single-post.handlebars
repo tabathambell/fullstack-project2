@@ -1,0 +1,32 @@
+<div class="container w-75">
+  <div class="row justify-content-center m-2">
+    <div class="card col-12 bg-secondary text-white">
+      {{> post-info post}}
+
+      {{ post.favorite_count}} Favorites
+
+      <p {{!-- href="/post/{{post.id}}" --}}>{{post.comments.length}} Comment(s) </p>
+      <div>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+
+{{#if loggedIn}}
+  <form class="comment-form text-center m-2">
+    <div class="form-group">
+      <center><textarea class="form-control w-25" name="comment-body" rows="4" placeholder="Comment"></textarea></center>
+    </div>
+    <button class="btn btn-light" type="submit">add comment</button>
+    <button type="button" class="upvote-btn btn btn-warning">upvote</button>
+  </form>
+<div class="text-center">
+  {{> comments post.comments}}
+</div>
+        
+<script src="/javascript/comment.js"></script>
+<script type="text/javascript" src="/javascript/favorite.js"></script>
+
+{{/if}}

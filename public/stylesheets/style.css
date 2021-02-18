@@ -1,76 +1,70 @@
-.hero {
-    background-image: url("https://i.imgur.com/95Bi2jP.png");
-    background-position: center;
-    background-repeat: no-repeat;
-    position: relative;
-}
-
 /* Navbar container */
 .navbar {
-    overflow: hidden;
-    background-color: #333;
     font-family: Arial;
-  }
+    padding: 14px 16px;
+}
   
   /* Links inside the navbar */
-  .navbar a {
-    float: left;
+.navbar a {
     font-size: 16px;
     color: white;
+    text-align: right;
+    text-decoration: none;
+}
+
+nav {
+    border-bottom: 5px solid rgb(114, 114, 114);
+}
+  
+footer {
+    color: white;
+    height: 50px;
+    width: 100%;
+    background-color: rgb(77, 77, 77);
+    left: 0;
+    bottom: 0;
     text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-  }
-  
-  /* The dropdown container */
-  .dropdown {
-    float: left;
-    overflow: hidden;
-  }
-  
-  /* Dropdown button */
-  .dropdown .dropbtn {
-    font-size: 16px;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+footer p {
+    padding-top: 12px;
+}
+
+#map {
+    margin-right: auto;
+    margin-left: auto;
+    height: 400px;
+    width: 100%;
+    border-bottom: 5px solid rgb(114, 114, 114);
+}
+
+.card-hover {
+    box-shadow: 0;
+    transition: box-shadow .5s;
+}
+
+.card-hover:hover{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgb(0, 0, 0);
+}
+textarea {
+    justify-content: center;
+}
+
+section.comment {
+ color: white;
+}
+
+/* .comment-text {
+  background-color: blue;
+  width: fit-content;
+  padding: 10px;
+  margin: 15px;
+}
+
+.commentBtn {
+  color: gold;
+    background-color: black;
     border: none;
-    outline: none;
-    color: white;
-    padding: 14px 16px;
-    background-color: inherit;
-    font-family: inherit; /* Important for vertical align on mobile phones */
-    margin: 0; /* Important for vertical align on mobile phones */
-  }
-  
-  /* Add a red background color to navbar links on hover */
-  .navbar a:hover, .dropdown:hover .dropbtn {
-    background-color: rgba(63, 13, 83, 0.2);
-  }
-  
-  /* Dropdown content (hidden by default) */
-  .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #1b1b1b;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-  }
-  
-  /* Links inside the dropdown */
-  .dropdown-content a {
-    float: none;
-    color: rgb(255, 255, 255);
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-    text-align: left;
-  }
-  
-  /* Add a grey background color to dropdown links on hover */
-  .dropdown-content a:hover {
-    background-color: #ddd;
-  }
-  
-  /* Show the dropdown menu on hover */
-  .dropdown:hover .dropdown-content {
-    display: block;
-  }
+    border-radius: 5px;
+} */

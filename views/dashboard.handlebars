@@ -1,0 +1,37 @@
+<section class="text-light">
+    <form class="px-4 py-3" id="newPost">
+        <div class="form-group">
+            <label for="postTitle">Title</label>
+            <input type="text" class="form-control" id="postTitle" placeholder="Title">
+        </div>
+        <div class="form-group">
+            <label for="postBody">Write Your Story</label>
+            <textarea class="form-control" id="postBody" rows="5" placeholder="Type"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="postCity">City</label>
+            <input type="text" class="form-control" id="postCity" placeholder="City">
+        </div>
+        <div class="form-group">
+            <label for="postCountry">Country</label>
+            <input type="text" class="form-control" id="postCountry" placeholder="Country">
+        </div>
+        <button type="submit" class="btn btn-light">Post Blog</button>
+    </form>
+</section>
+
+<div class="container">
+    <div class="card-deck">
+        {{#each posts as |post|}}
+        <div class="row justify-content-center m-2 w-25">
+            <div class="card bg-secondary text-white">
+                {{> post-info post }}
+                <a href="/dashboard/edit/{{id}}" class="edit-link text-warning">Edit post</a>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+
+    <script src="/javascript/add-post.js"></script>
+
+    {{!-- <button id=“editBtn”>Edit</button> --}}
