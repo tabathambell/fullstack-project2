@@ -22,7 +22,22 @@ async function signupFormHandler(event){
         });
 
         if(response.ok){
-            document.location.reload();
+            const res = await fetch('/api/users/login', {
+                method: 'POST',
+                body: JSON.stringify({
+                    email,
+                    password
+                }),
+                headers: { 
+                    'Content-Type': 'application/json' 
+                }
+            });
+    
+            if(res.ok){
+                document.location.replace('/dashboard');
+            } else{
+                alert(res.statusText);
+            }
         } else {
             alert(response.status);
         }
