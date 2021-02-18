@@ -1,0 +1,25 @@
+<div id="map"></div>
+
+
+{{!-- <iframe width="450" height="250" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDdG94JNO8c3GcCXcQc48Ov-_uJmRDR1Kg&zoom=3
+          &q={{post.city}},{{post.country}}" allowfullscreen>
+</iframe> --}}
+
+<script src="/javascript/maps.js"></script>
+<script
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDdG94JNO8c3GcCXcQc48Ov-_uJmRDR1Kg&callback=initMap&libraries=&v=weekly"
+  async>
+  </script>
+
+<div class="container">
+  <div class="card-deck">
+    {{#each posts as |post|}}
+    <div class="row justify-content-center m-2 w-25">
+      <div class="card bg-secondary text-white card-hover">
+        {{> post-info post }}
+        <a href="/post/{{id}}" class="btn btn-dark">See More</a>
+      </div>
+    </div>
+    {{/each}}
+  </div>
+</div>
