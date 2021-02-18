@@ -33,8 +33,7 @@ async function newPostHandler(event){
         });
 
         if(response.ok){
-            // document.location.replace('/single-post');
-            console.log('success');
+            document.location.reload();
         } else {
             alert(response.statusText);
         }
