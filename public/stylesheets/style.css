@@ -48,7 +48,7 @@ footer p {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgb(0, 0, 0);
 }
 
-.comment-text {
+/* .comment-text {
   background-color: blue;
   width: fit-content;
   padding: 10px;
@@ -60,4 +60,4 @@ footer p {
     background-color: black;
     border: none;
     border-radius: 5px;
-}
+} */

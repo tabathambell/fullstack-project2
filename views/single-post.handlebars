@@ -15,18 +15,16 @@
 </div>
 
 {{#if loggedIn}}
-
-<form class="comment-form m-3">
-  <div class="form-group">
-    <textarea name="comment-body"></textarea>
-  </div>
-  <button class="commentBtn" type="submit">add comment</button>
-  <button type="button" class="upvote-btn">upvote</button>
-
-
-</form>
-
-{{> comments post.comments}}
+  <form class="comment-form text-center m-2">
+    <div class="form-group">
+      <textarea class="form-control w-25" name="comment-body" rows="4" placeholder="Comment"></textarea>
+    </div>
+    <button class="btn btn-light" type="submit">add comment</button>
+    <button type="button" class="upvote-btn btn btn-warning">upvote</button>
+  </form>
+<div class="text-center">
+  {{> comments post.comments}}
+</div>
         
 
 
