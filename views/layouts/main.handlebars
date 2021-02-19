@@ -34,6 +34,7 @@
         {{/if}}
 
     </nav>
+    <div class="wrapper">
 
     {{#unless loggedIn}}
     {{!-- Login Modal --}}
@@ -101,6 +102,7 @@
     <main>
         {{{ body }}}
     </main>
+    <div class="push"></div>
 
     {{#if loggedIn}}
     <script src="/javascript/logout.js"></script>
@@ -108,13 +110,14 @@
     <script src="/javascript/login.js"></script>
     {{/if}}
 
+    {{!-- Footer content --}}
+<footer class="footer">
+    <p>©2021 Creepventures: Tell Us Your Scary Stories</p>
+</footer>
+</div>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
-
-{{!-- Footer content --}}
-<footer>
-    <p>©2021 Creepventures: Tell Us Your Scary Stories</p>
-</footer>
 
 </html>
